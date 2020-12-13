@@ -3,7 +3,9 @@ import React from 'react'
 class Indonesia extends React.Component{
 
     render(){
-        return("Hello Indonesia")
+        return(
+            <p className="f18">Hello joo!!!</p>
+        )
     }
 }
 
