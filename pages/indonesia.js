@@ -1,12 +1,10 @@
-import React from 'react'
+import React from "react";
+import IndexPage from "../components/Dashboard/IndexPage";
 
-class Indonesia extends React.Component{
-
-    render(){
-        return(
-            <p className="f18">Hello joo!!!</p>
-        )
-    }
+class Indonesia extends React.Component {
+  render() {
+    return <IndexPage isGlobal={false} />;
+  }
 }
 
-export default Indonesia
+export default Indonesia;
