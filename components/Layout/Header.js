@@ -25,7 +25,7 @@ const Header = (props) => {
           <div className="ml-auto hidden-sm-down">
             <Nav
               variant="pills"
-              defaultActiveKey={router.pathname == "/" ? "link=0" : "link-1"}
+              defaultActiveKey={router.pathname == "/" ? "link-0" : "link-1"}
             >
               <Nav.Item>
                 <Nav.Link eventKey="link-0" href="/">
