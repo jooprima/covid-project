@@ -8,13 +8,18 @@ class Indonesia extends React.Component {
   static async getInitialProps() {
     const data = await fetch(`${config["kawal-corona"].base_url}/indonesia`);
     const items = await data.json();
+    const stat = await fetch(
+      `${config["global-api"].base_url}${config["global-api"].total_live}/indonesia`
+    );
+    const statData = await stat.json();
     return {
       items,
+      statData,
     };
   }
   render() {
-    const { items } = this.props;
-    return <IndexPage isGlobal={false} data={items} />;
+    const { items, statData } = this.props;
+    return <IndexPage isGlobal={false} data={items} statistik={statData} />;
   }
 }
 

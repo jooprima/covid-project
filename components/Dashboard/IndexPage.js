@@ -28,7 +28,11 @@ function IndexPage(props) {
           isGlobal={props.isGlobal}
           data={props.data ? props.data : null}
         />
-        <Grafik isGlobal={props.isGlobal} />
+        <Grafik
+          isGlobal={props.isGlobal}
+          data={props.data ? props.data : null}
+          statistik={props.statistik ? props.statistik : null}
+        />
         <Table isGlobal={props.isGlobal} />
       </div>
       <Footer
