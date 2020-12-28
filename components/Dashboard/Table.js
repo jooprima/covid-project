@@ -1,3 +1,5 @@
+import NumberFormat from "react-number-format";
+
 const Table = (props) => {
   return (
     <div className="row mb-5">
@@ -23,23 +25,81 @@ const Table = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {props.isGlobal ? (
-                    <tr>
-                      <td>1.</td>
-                      <td>United States</td>
-                      <td>3.000.000</td>
-                      <td>1.000.000</td>
-                      <td>250.000</td>
-                    </tr>
-                  ) : (
-                    <tr>
-                      <td>1.</td>
-                      <td>Jawa Timur</td>
-                      <td>10.000</td>
-                      <td>3.000</td>
-                      <td>400</td>
-                    </tr>
-                  )}
+                  {props.isGlobal
+                    ? props.data &&
+                      props.data.map((item, index) => {
+                        return (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{item.attributes.Country_Region}</td>
+                            <td>
+                              {" "}
+                              <NumberFormat
+                                value={item.attributes.Confirmed}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />{" "}
+                            </td>
+                            <td>
+                              <NumberFormat
+                                value={item.attributes.Recovered}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />
+                            </td>
+                            <td>
+                              <NumberFormat
+                                value={item.attributes.Deaths}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />
+                            </td>
+                          </tr>
+                        );
+                      })
+                    : props.provinsi &&
+                      props.provinsi.map((item, index) => {
+                        return (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{item.attributes.Provinsi}</td>
+                            <td>
+                              {" "}
+                              <NumberFormat
+                                value={item.attributes.Kasus_Posi}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />{" "}
+                            </td>
+                            <td>
+                              <NumberFormat
+                                value={item.attributes.Kasus_Semb}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />
+                            </td>
+                            <td>
+                              <NumberFormat
+                                value={item.attributes.Kasus_Meni}
+                                displayType={"text"}
+                                thousandSeparator={","}
+                                decimalSeparator={"."}
+                                defaultValue={0}
+                              />
+                            </td>
+                          </tr>
+                        );
+                      })}
                 </tbody>
               </table>
             </div>

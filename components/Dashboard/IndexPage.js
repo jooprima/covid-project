@@ -33,7 +33,11 @@ function IndexPage(props) {
           data={props.data ? props.data : null}
           statistik={props.statistik ? props.statistik : null}
         />
-        <Table isGlobal={props.isGlobal} />
+        <Table
+          isGlobal={props.isGlobal}
+          data={props.data ? props.data : null}
+          provinsi={props.provinsi}
+        />
       </div>
       <Footer
         rightContent={""}
