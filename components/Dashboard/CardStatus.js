@@ -1,3 +1,7 @@
+import NumberFormat from "react-number-format";
+
+const { sum } = require("../../util/library");
+
 const CardStatus = (props) => {
   return (
     <div className="row mt-3 ml-1 mr-1 mb-2">
@@ -7,7 +11,16 @@ const CardStatus = (props) => {
             <div className="d-flex">
               <div className="text-white">
                 <p className="text-white mb-0">TOTAL POSITIF</p>
-                <h2 className="mb-0 number-font">20.000</h2>
+                <h2 className="mb-0 number-font">
+                  {" "}
+                  <NumberFormat
+                    value={sum("Confirmed", props)}
+                    displayType={"text"}
+                    thousandSeparator={","}
+                    decimalSeparator={"."}
+                    defaultValue={0}
+                  />{" "}
+                </h2>
                 <p className="text-white mb-0">ORANG</p>
               </div>
               <div className="ml-auto">
@@ -28,7 +41,15 @@ const CardStatus = (props) => {
             <div className="d-flex">
               <div className="text-white">
                 <p className="text-white mb-0">TOTAL SEMBUH</p>
-                <h2 className="mb-0 number-font">12.000</h2>
+                <h2 className="mb-0 number-font">
+                  <NumberFormat
+                    value={sum("Recovered", props)}
+                    displayType={"text"}
+                    thousandSeparator={","}
+                    decimalSeparator={"."}
+                    defaultValue={0}
+                  />
+                </h2>
                 <p className="text-white mb-0">ORANG</p>
               </div>
               <div className="ml-auto">
@@ -49,7 +70,15 @@ const CardStatus = (props) => {
             <div className="d-flex">
               <div className="text-white">
                 <p className="text-white mb-0">TOTAL MENINGGAL</p>
-                <h2 className="mb-0 number-font">300</h2>
+                <h2 className="mb-0 number-font">
+                  <NumberFormat
+                    value={sum("Deaths", props)}
+                    displayType={"text"}
+                    thousandSeparator={","}
+                    decimalSeparator={"."}
+                    defaultValue={0}
+                  />
+                </h2>
                 <p className="text-white mb-0">ORANG</p>
               </div>
               <div className="ml-auto">
@@ -70,7 +99,15 @@ const CardStatus = (props) => {
             <div className="d-flex">
               <div className="text-white">
                 <p className="text-white mb-0">TOTAL ACTIVE</p>
-                <h2 className="mb-0 number-font">7.700</h2>
+                <h2 className="mb-0 number-font">
+                  <NumberFormat
+                    value={sum("Active", props)}
+                    displayType={"text"}
+                    thousandSeparator={","}
+                    decimalSeparator={"."}
+                    defaultValue={0}
+                  />
+                </h2>
                 <p className="text-white mb-0">ORANG</p>
               </div>
               <div className="ml-auto">
